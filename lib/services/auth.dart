@@ -15,7 +15,7 @@ class AuthService {
         .map((FirebaseUser user) => _userFromFirebaseUser(user));
   }
 
-  //sing in anon
+  //sign in anon
   Future signInAnon() async {
     try {
       AuthResult result = await _auth.signInAnonymously();
@@ -32,4 +32,12 @@ class AuthService {
   //register with email and password
 
   //sign out
+  Future signOut() async {
+    try {
+      return await _auth.signOut();
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
 }
