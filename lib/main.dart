@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:net_ninja_brew/models/user.dart';
 import 'package:net_ninja_brew/screens/wrapper.dart';
 import 'package:net_ninja_brew/services/auth.dart';

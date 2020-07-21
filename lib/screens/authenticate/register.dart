@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:net_ninja_brew/services/auth.dart';
 
-class SignIn extends StatefulWidget {
+
+class Register extends StatefulWidget {
   @override
-  _SignInState createState() => _SignInState();
+  _RegisterState createState() => _RegisterState();
 }
 
-class _SignInState extends State<SignIn> {
+class _RegisterState extends State<Register> {
+  
   final AuthService _authService = AuthService();
   String email = '';
   String password = '';
+
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +51,7 @@ class _SignInState extends State<SignIn> {
                 },
                 color: Colors.pink[400],
                 child: Text(
-                  'Sign in',
+                  'Register',
                   style: TextStyle(color: Colors.white),
                 ),
               ),
