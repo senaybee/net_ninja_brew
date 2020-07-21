@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:net_ninja_brew/services/auth.dart';
+import 'package:net_ninja_brew/shared/constants.dart';
 
 class SignIn extends StatefulWidget {
   final Function onToggle;
@@ -43,6 +44,7 @@ class _SignInState extends State<SignIn> {
             children: [
               SizedBox(height: 20.0),
               TextFormField(
+                decoration: kInputDecoration.copyWith(hintText: 'Email'),
                 validator: (value) =>
                     value.isEmpty ? 'Please enter an email' : null,
                 onChanged: (value) {
@@ -53,7 +55,8 @@ class _SignInState extends State<SignIn> {
               ),
               SizedBox(height: 20.0),
               TextFormField(
-                 validator: (value) => value.length < 6
+                decoration: kInputDecoration.copyWith(hintText: 'Password'),
+                validator: (value) => value.length < 6
                     ? 'Please enter a password longer than 6 characters'
                     : null,
                 onChanged: (value) {
