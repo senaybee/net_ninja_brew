@@ -7,20 +7,21 @@ import 'package:provider/provider.dart';
 
 class Home extends StatelessWidget {
   final AuthService _authService = AuthService();
+
+  void _showSettingsPanel(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return Container(
+          padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 60.0),
+          child: Text('bottom sheet'),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    void _showSettingsPanel() {
-      showModalBottomSheet(
-        context: context,
-        builder: (context) {
-          return Container(
-            padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 60.0),
-            child: Text('bottom sheet'),
-          );
-        },
-      );
-    }
-
     return StreamProvider<List<Brew>>.value(
       value: DatabaseService().brews,
       child: Scaffold(
@@ -31,7 +32,7 @@ class Home extends StatelessWidget {
             elevation: 0.0,
             actions: [
               FlatButton.icon(
-                onPressed: () => _showSettingsPanel(),
+                onPressed: () => _showSettingsPanel(context),
                 icon: Icon(Icons.settings),
                 label: Text('Settings'),
               ),
