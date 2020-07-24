@@ -64,15 +64,15 @@ class _SettingsFormState extends State<SettingsForm> {
                     }),
                   ),
                   Slider(
-                    activeColor: Colors.brown[_currentStrength ?? 100],
-                    inactiveColor: Colors.brown[_currentStrength ?? 100],
+                    activeColor: Colors.brown[_currentStrength ?? userData.strength],
+                    inactiveColor: Colors.brown[_currentStrength ?? userData.strength],
                     min: 100.0,
                     max: 900.0,
                     divisions: 8,
                     onChanged: (val) => setState(() {
                       _currentStrength = val.round();
                     }),
-                    value: (_currentStrength ?? 100).toDouble(),
+                    value: (_currentStrength ?? userData.strength).toDouble(),
                   ),
                   RaisedButton(
                     color: Colors.pink[400],
@@ -81,9 +81,14 @@ class _SettingsFormState extends State<SettingsForm> {
                       style: TextStyle(color: Colors.white),
                     ),
                     onPressed: () async {
-                      print(_currentName);
-                      print(_currentSugars);
-                      print(_currentStrength);
+                      if (_formKey.currentState.validate()) {
+                        await DatabaseService(uid: user.uid).updateUserData(
+                          _currentSugars ?? userData.sugars,
+                          _currentName ?? userData.name,
+                          _currentStrength ?? userData.strength,
+                        );
+                        Navigator.pop(context);
+                      }
                     },
                   ),
                 ],
