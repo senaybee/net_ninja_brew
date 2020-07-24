@@ -1,16 +1,3 @@
-# net_ninja_brew
+This is an app I was taugh through a wonderful course on Youtube. I needed a refresher on the Firebase Flutter API's and this was a great start. It uses Firestore to store a `brews` collection in which each document stores a `name`, `strength` and `sugars` property. The `UserData` and `Brew` models use this data to populate the view. Firestore is also used for authentication with the help of the really cool [Provider](https://pub.dev/packages/provider) package on [pub.dev].
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![GIF of the app at work](./demo.gif)
